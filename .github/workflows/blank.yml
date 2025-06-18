@@ -1,0 +1,27 @@
+name: Test GitHub Actions
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Simple test
+      run: |
+        echo "🎉 GitHub Actions fonctionne sur hadamaouattara !"
+        echo "Date: $(date)"
+        echo "Repository: ${{ github.repository }}"
+        
+    - name: Test Python et outils
+      run: |
+        python --version
+        pip --version
+        node --version
+        echo "✅ Environnement prêt pour AWS CDK !"
